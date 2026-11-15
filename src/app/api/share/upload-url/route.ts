@@ -28,7 +28,7 @@ export async function POST(req: NextRequest) {
     const putCommand = new PutObjectCommand({
       Bucket: process.env.R2_BUCKET_NAME,
       Key: key,
-      ContentType: contentType || "application/octet-stream",
+      
     });
 
     const uploadUrl = await getSignedUrl(r2, putCommand, { expiresIn: 1800 });

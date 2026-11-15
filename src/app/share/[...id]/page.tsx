@@ -142,7 +142,7 @@ export default function SharePage({ params }: { params: Promise<{ id: string[] }
       await new Promise<void>((resolve, reject) => {
         const xhr = new XMLHttpRequest();
         xhr.open("PUT", uploadUrl, true);
-        xhr.setRequestHeader("Content-Type", file.type || "application/octet-stream");
+        // Content-Type izostavljen radi agnostičkog R2 binary uploada
 
         xhr.upload.onprogress = (e) => {
           if (e.lengthComputable) {
